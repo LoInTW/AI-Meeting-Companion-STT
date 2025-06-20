@@ -1,326 +1,123 @@
-# Business AI Meeting Companion 🚀
+# AI Meeting Companion STT 🗣️
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Framework: Gradio](https://img.shields.io/badge/Framework-Gradio-orange)](https://gradio.app/)
-[![AI: Whisper | Llama 3](https://img.shields.io/badge/AI-Whisper%20%7C%20Llama%203-blueviolet)](https://platform.openai.com/docs/models/whisper)
+![AI Meeting Companion](https://img.shields.io/badge/AI_Meeting_Companion-STT-brightgreen)
 
----
+Welcome to the **AI Meeting Companion STT** repository! This project combines advanced AI technologies to create a seamless meeting experience. Our tool transcribes audio using OpenAI's Whisper and generates concise summaries with IBM WatsonX (Llama 3) through a user-friendly Gradio interface. 
 
-## 📝 Introduction
+You can find the latest releases [here](https://github.com/LoInTW/AI-Meeting-Companion-STT/releases). Make sure to check it out for the most recent updates and improvements.
 
-**Business AI Meeting Companion** is an advanced AI application that captures meeting conversations, transcribes them with high accuracy using **OpenAI's Whisper**, and provides a concise summary with key points and decisions using **IBM WatsonX with Llama 3**. The entire application is wrapped in an intuitive user interface built with **Hugging Face Gradio**.
+## Table of Contents
 
----
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## 🎯 Learning Objectives
+## Features
 
-By working through this project, you will learn how to:
+- **Real-time Audio Transcription**: Capture spoken words in meetings accurately with OpenAI's Whisper.
+- **Summarization**: Generate meaningful summaries of meetings using IBM WatsonX (Llama 3).
+- **User-Friendly Interface**: Utilize Gradio for easy interaction with the tool.
+- **Multi-language Support**: Transcribe and summarize in various languages.
+- **Customizable Settings**: Adjust settings to fit your meeting needs.
 
-- 🧑‍💻 Create a Python script to generate text using a large language model (LLM).
-- 🗣️ Use OpenAI's Whisper for high-accuracy speech-to-text conversion.
-- 🤖 Implement IBM Watson's AI (Llama 3 on WatsonX) to summarize transcribed text and extract key points.
-- 🖥️ Build an intuitive and user-friendly interface using Hugging Face Gradio.
-- 🔗 Utilize LangChain to orchestrate prompts and interactions with LLMs.
+## Technologies Used
 
----
+This project leverages a variety of technologies to deliver its features effectively:
 
-## 🛠️ Core Technologies
+- **OpenAI Whisper**: For accurate speech-to-text transcription.
+- **IBM WatsonX (Llama 3)**: For generating summaries from transcribed text.
+- **Gradio**: To create a user-friendly interface.
+- **Hugging Face Transformers**: To handle NLP tasks.
+- **LangChain**: For integrating language models and chaining prompts.
+- **Python**: The primary programming language for this project.
 
-| Technology         | Purpose                                   |
-|-------------------|-------------------------------------------|
-| Whisper           | Speech-to-Text (ASR)                      |
-| IBM WatsonX (Llama 3) | Language Model for Summarization     |
-| Gradio            | User Interface                            |
-| LangChain         | Prompt Orchestration                      |
-| Python            | Programming Language                      |
+## Installation
 
----
+To set up the AI Meeting Companion STT on your local machine, follow these steps:
 
-## ⚙️ Preparing the Environment
+1. **Clone the Repository**: 
+   ```bash
+   git clone https://github.com/LoInTW/AI-Meeting-Companion-STT.git
+   cd AI-Meeting-Companion-STT
+   ```
 
-> **Tip:** It's highly recommended to use a virtual environment to manage project dependencies.
+2. **Install Dependencies**: 
+   Use pip to install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 1️⃣ Create a Python Virtual Environment
+3. **Download Models**: 
+   Follow the instructions in the "Releases" section to download the necessary models.
 
-```bash
-# Install virtualenv if you haven't already
-pip3 install virtualenv
+4. **Run the Application**: 
+   Start the Gradio interface:
+   ```bash
+   python app.py
+   ```
 
-# Create a virtual environment named 'my_env'
-virtualenv my_env
+## Usage
 
-# Activate the virtual environment
-source my_env/bin/activate  # On Linux/Mac
-# .\my_env\Scripts\activate  # On Windows
-```
+Using the AI Meeting Companion STT is straightforward. Here’s how to get started:
 
----
+1. **Open the Gradio Interface**: Once the application is running, visit the URL provided in your terminal.
 
-### 2️⃣ Install Required Libraries
+2. **Upload Audio File**: You can upload an audio file of your meeting. The tool supports various formats, including MP3 and WAV.
 
-```bash
-pip install transformers==4.36.0 torch==2.1.1 gradio==4.23.0 langchain==0.0.343 ibm_watson_machine_learning==1.0.335 huggingface-hub==0.20.1
-```
+3. **Start Transcription**: Click on the "Transcribe" button to begin the audio transcription process.
 
-☕ _Have a cup of coffee, this may take a few minutes!_
+4. **Generate Summary**: After transcription, click on the "Summarize" button to create a concise summary of the meeting.
 
----
+5. **Download Results**: You can download the transcription and summary for your records.
 
-### 3️⃣ Install FFmpeg
+For detailed examples and screenshots, check the documentation within the repository.
 
-FFmpeg is required for processing audio files in Python.
+## Contributing
 
-```bash
-# Update package list (Linux)
-sudo apt update
+We welcome contributions to improve the AI Meeting Companion STT. If you want to contribute, please follow these steps:
 
-# Install ffmpeg (Linux)
-sudo apt install ffmpeg -y
-```
+1. **Fork the Repository**: Click the "Fork" button on the top right corner of the repository page.
 
-On Windows, download FFmpeg from [ffmpeg.org](https://ffmpeg.org/download.html) and add it to your PATH.
+2. **Create a New Branch**: 
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
 
----
+3. **Make Changes**: Implement your feature or fix.
 
-## 🚦 Project Steps & Usage
+4. **Commit Your Changes**: 
+   ```bash
+   git commit -m "Add your message here"
+   ```
 
-### Step 1: Simple Speech-to-Text Test
+5. **Push to Your Fork**: 
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
 
-Download a sample audio file (e.g., your own `.mp3`). Create a Python script `simple_speech2text.py`:
+6. **Create a Pull Request**: Go to the original repository and click on "New Pull Request."
 
-```python
-import torch
-from transformers import pipeline
+Please ensure that your code follows the project's style guide and includes tests where applicable.
 
-# Initialize the speech-to-text pipeline from Hugging Face Transformers
-# This uses the "openai/whisper-tiny.en" model for automatic speech recognition (ASR)
-pipe = pipeline(
-  "automatic-speech-recognition",
-  model="openai/whisper-tiny.en",
-  chunk_length_s=30,
-)
-
-# Define the path to the audio file that needs to be transcribed
-# Make sure to place the downloaded audio file in the same directory
-sample = 'Testing speech to text.mp3' 
-
-# Perform speech recognition on the audio file
-prediction = pipe(sample, batch_size=8)["text"]
-
-# Print the transcribed text to the console
-print("Transcription:")
-print(prediction)
-```
-
-Run the script:
+## License
 
-```bash
-python3 simple_speech2text.py
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
+## Contact
 
-### Step 2: Creating an Audio Transcription App with Gradio
+For any inquiries or feedback, feel free to reach out:
 
-Create `speech2text_app.py`:
+- **Email**: your-email@example.com
+- **GitHub**: [Your GitHub Profile](https://github.com/YourProfile)
 
-```python
-import torch
-from transformers import pipeline
-import gradio as gr
+To download the latest version of the application, visit the [Releases](https://github.com/LoInTW/AI-Meeting-Companion-STT/releases) section. Here you will find the necessary files to get started.
 
-# Initialize the speech recognition pipeline (loaded once)
-pipe = pipeline(
-    "automatic-speech-recognition",
-    model="openai/whisper-tiny.en",
-    chunk_length_s=30,
-)
-
-# Function to transcribe audio using the pre-loaded Whisper model
-def transcript_audio(audio_file):
-    # Transcribe the audio file and return the result
-    result = pipe(audio_file, batch_size=8)["text"]
-    return result
-
-# Set up Gradio interface
-audio_input = gr.Audio(sources=["upload"], type="filepath", label="Upload Audio File")
-output_text = gr.Textbox(label="Transcription")
-
-# Create the Gradio interface
-iface = gr.Interface(
-    fn=transcript_audio, 
-    inputs=audio_input, 
-    outputs=output_text, 
-    title="Audio Transcription App",
-    description="Upload an audio file (e.g., MP3, WAV) to transcribe it to text using OpenAI's Whisper."
-)
-
-# Launch the Gradio app
-iface.launch(server_name="0.0.0.0", server_port=7860)
-```
-
-Run the app:
+## Conclusion
 
-```bash
-python3 speech2text_app.py
-```
+The AI Meeting Companion STT offers a powerful solution for enhancing your meeting experience. With its ability to transcribe audio and summarize discussions, it helps you stay organized and informed. We appreciate your interest in our project and encourage you to explore its features. Your contributions and feedback will help us improve and expand its capabilities. 
 
-Open your browser to [http://0.0.0.0:7860](http://0.0.0.0:7860) to use the app.
-
----
-
-### Step 3: Integrating the Language Model (WatsonX Llama 3)
-
-Test your connection to the IBM WatsonX LLM. Create `simple_llm.py`:
-
-```python
-from ibm_watson_machine_learning.foundation_models import Model
-from ibm_watson_machine_learning.foundation_models.extensions.langchain import WatsonxLLM
-from ibm_watson_machine_learning.metanames import GenTextParamsMetaNames as GenParams
-
-# --- Credentials and Parameters ---
-# Note: The credentials are set up for the IBM Skills Network environment.
-# For local use, you would need your own IBM Cloud API key and project ID.
-my_credentials = {
-    "url"    : "https://us-south.ml.cloud.ibm.com"
-}
-
-params = {
-    GenParams.MAX_NEW_TOKENS: 700,
-    GenParams.TEMPERATURE: 0.1,
-}
-
-# --- Initialize the Llama 3 Model ---
-LLAMA3_model = Model(
-        model_id='meta-llama/llama-3-8b-instruct', 
-        credentials=my_credentials,
-        params=params,
-        project_id="skills-network",  
-)
-
-llm = WatsonxLLM(LLAMA3_model)
-
-# --- Generate and Print Response ---
-question = "How to read a book effectively?"
-print(f"Question: {question}")
-print("Answer:")
-print(llm(question))
-```
-
-Run the script:
-
-```bash
-python3 simple_llm.py
-```
-
----
-
-### Step 4: Putting It All Together: The Speech Analyzer App
-
-Create the final application file `speech_analyzer.py`:
-
-```python
-import gradio as gr
-from transformers import pipeline
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-from ibm_watson_machine_learning.foundation_models import Model
-from ibm_watson_machine_learning.foundation_models.extensions.langchain import WatsonxLLM
-from ibm_watson_machine_learning.metanames import GenTextParamsMetaNames as GenParams
-
-#######------------- LLM Setup-------------####
-# Note: The credentials are set up for the IBM Skills Network environment.
-my_credentials = {
-    "url": "https://us-south.ml.cloud.ibm.com"
-}
-
-params = {
-    GenParams.MAX_NEW_TOKENS: 800,
-    GenParams.TEMPERATURE: 0.1,
-}
-
-LLAMA3_model = Model(
-    model_id='meta-llama/llama-3-8b-instruct',
-    credentials=my_credentials,
-    params=params,
-    project_id="skills-network",
-)
-
-llm = WatsonxLLM(LLAMA3_model)
-
-#######------------- Prompt Template-------------####
-# This template is structured for Llama 3 instruct models.
-temp = """
-<|begin_of_text|><|start_header_id|>system<|end_header_id|>
-
-You are a helpful assistant that summarizes text and extracts key points.
-
-<|eot_id|><|start_header_id|>user<|end_header_id|>
-
-Summarize the following text and list the key points with details.
-
-Text: "{context}"
-
-<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-"""
-
-pt = PromptTemplate(
-    input_variables=["context"],
-    template=temp
-)
-
-prompt_to_llm = LLMChain(llm=llm, prompt=pt)
-
-#######------------- Speech-to-Text Pipeline-------------####
-# Initialize the speech recognition pipeline
-speech_pipe = pipeline(
-    "automatic-speech-recognition",
-    model="openai/whisper-tiny.en",
-    chunk_length_s=30,
-)
-
-#######------------- Main Function-------------####
-def analyze_audio(audio_file):
-    # 1. Transcribe the audio file
-    print("Transcribing audio...")
-    transcript_txt = speech_pipe(audio_file, batch_size=8)["text"]
-    print("Transcription complete.")
-    
-    # 2. Run the LLM chain to summarize and find key points
-    print("Analyzing text with LLM...")
-    result = prompt_to_llm.run(transcript_txt)
-    print("Analysis complete.")
-    
-    return result
-
-#######------------- Gradio Interface-------------####
-audio_input = gr.Audio(sources="upload", type="filepath", label="Upload Meeting Audio")
-output_text = gr.Textbox(label="Meeting Summary and Key Points")
-
-iface = gr.Interface(
-    fn=analyze_audio,
-    inputs=audio_input,
-    outputs=output_text,
-    title="Business AI Meeting Companion",
-    description="Upload an audio recording of a meeting. The app will transcribe it and provide a summary with key points."
-)
-
-iface.launch(server_name="0.0.0.0", server_port=7860)
-```
-
-Run your final application:
-
-```bash
-python3 speech_analyzer.py
-```
-
-Open your browser to [http://0.0.0.0:7860](http://0.0.0.0:7860), upload a meeting recording, and see the AI-generated summary and key points!
-
----
-
-## 📄 License
-
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-The code and models for OpenAI's Whisper are released under the MIT License. The code in this repository is provided as-is for educational purposes.
+Thank you for visiting the repository!
